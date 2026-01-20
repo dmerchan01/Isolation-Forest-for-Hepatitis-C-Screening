@@ -48,10 +48,6 @@ The following laboratory and demographic features are used:
   - BIL, CHE, CHOL
   - CREA, CGT, PROT
 
-- **Demographic features**
-  - Age
-  - Sex (encoded as binary)
-
 Missing values are handled using **median imputation**, and features are **standardized** using statistics computed **only from healthy donors**.
 
 ---
