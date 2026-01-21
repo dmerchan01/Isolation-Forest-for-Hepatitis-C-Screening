@@ -99,14 +99,7 @@ Isolation-Forest-Anomaly-Detection/
 
 ## How to Run
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/<your-username>/Isolation-Forest-Anomaly-Detection.git
-cd Isolation-Forest-Anomaly-Detection
-```
-
-2. Create and activate a virtual environment:
+1. Create and activate a virtual environment:
 
 ```bash
 python -m venv venv
@@ -114,16 +107,16 @@ source venv/bin/activate      # Linux / macOS
 venv\Scripts\activate         # Windows
 ```
 
-3. Install dependencies:
+2. Install dependencies:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn ucimlrepo
+pip install -r requirements.txt
 ```
 
-4. Run the analysis:
+3. Run the analysis:
 
 ```bash
-python test.py
+python main.py
 ```
 
 ---
@@ -138,6 +131,36 @@ python test.py
 Patients with advanced conditions (e.g., cirrhosis) tend to receive the lowest scores, while early-stage conditions may partially overlap with healthy donors.
 
 ---
+
+## Results
+
+The Isolation Forest model was trained exclusively on **Blood Donor** samples, which were treated as the reference representation of normal liver function.  
+The trained model was then applied to the entire dataset in order to identify anomalous patient profiles.
+
+### Anomaly Detection Summary
+
+The table below shows the relationship between the clinical categories and the anomaly predictions produced by the model:
+
+| Category               | Anomaly (-1) | Normal (1) |
+|------------------------|--------------|------------|
+| Blood Donor            | 43           | 490        |
+| Suspect Blood Donor    | 7            | 0          |
+| Hepatitis              | 16           | 8          |
+| Fibrosis               | 16           | 5          |
+| Cirrhosis              | 30           | 0          |
+
+### Key Observations
+
+- **Cirrhosis patients were detected as anomalies in 100% of cases**, indicating strong separation from normal donor profiles.
+- **Suspect Blood Donors were consistently flagged as anomalous**, aligning with their clinical uncertainty.
+- **Most Hepatitis and Fibrosis cases were identified as anomalous**, demonstrating the model’s ability to detect early and intermediate disease patterns.
+- A limited number of **Blood Donors were flagged as anomalous**, which is expected in a screening context and reflects a deliberate tradeoff favoring sensitivity over specificity.
+
+### Interpretation
+
+These results confirm that the Isolation Forest model functions effectively as a **screening tool**, prioritizing the identification of potentially abnormal patients rather than performing direct disease classification.  
+Patients flagged as anomalous are intended to undergo further clinical evaluation or downstream diagnostic modeling.
+
 
 ## Limitations
 
