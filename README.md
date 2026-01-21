@@ -181,6 +181,20 @@ This approach is best suited for **screening and risk prioritization**, not diag
 
 ---
 
+## Acknowledgements
+
+The author would like to acknowledge the following resources that made this project possible:
+
+- **HCV Dataset**  
+  This project uses the *Hepatitis C Virus (HCV) Data Set* provided by the UCI Machine Learning Repository.
+  
+- **Isolation Forest Tutorial**  
+  Conceptual guidance and implementation inspiration were drawn from the article  
+  *“Isolation Forest Guide: Explanation and Python Implementation”* by Conor O’Sullivan.  
+  The tutorial was used as a learning reference to understand Isolation Forest principles and practical considerations in anomaly detection.
+
+These resources were used strictly for educational purposes, and all modeling decisions, data preprocessing, and analysis were independently implemented and adapted for this project.
+
 ## License
 
 This project is intended for **educational and research purposes**.
