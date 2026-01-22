@@ -1,5 +1,6 @@
 ########### Imports ########### 
 
+import joblib
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -201,3 +202,9 @@ plt.ylabel("Anomaly score")
 plt.legend()
 plt.title("Isolation Forest anomaly scores (trained on Blood Donors)")
 plt.show()
+
+
+########### Import the model ###########
+
+# Save the trained model for future use
+joblib.dump(iso_forest, "hepatitis_detection.pkl")
